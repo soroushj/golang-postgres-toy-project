@@ -1,8 +1,8 @@
 version: '3'
 services:
   db:
-    build:
-      context: ./
-      dockerfile: ./Dockerfile
+    image: postgres:11
+    volumes:
+      - ./initdb.sql:/docker-entrypoint-initdb.d/initdb.sql:ro
     ports:
       - 5533:5432
